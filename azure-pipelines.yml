@@ -69,7 +69,7 @@ stages:
   jobs:
   - deployment: Deploy
     pool:
-      vmImage: 'ubuntu-18.04'
+      name: 'ADOLinuxAgentPool'
     environment: dev
     variables:
     - group: Release
