@@ -11,7 +11,7 @@ stages:
   - job: 'Build'
     displayName: 'Build job'
     pool:
-      vmImage: 'ubuntu-18.04'
+      name: AgentPool
       demands:
       - npm
 
@@ -67,7 +67,7 @@ stages:
 
   - job: BuildDacpac
     pool:
-      vmImage: 'windows-2019'
+      name: AgentPool
     steps:
     - task: DotNetCoreCLI@2
       displayName: 'Restore project dependencies'
@@ -100,7 +100,7 @@ stages:
   jobs:
   - deployment: DBAVerificationScript
     pool:
-      vmImage: 'windows-2019'
+      name: AgentPool
     variables:
     - group: 'Release'
     environment: 'dbaverificationscript'
@@ -138,7 +138,7 @@ stages:
   jobs:
   - deployment: DBAVerificationApply
     pool:
-      vmImage: 'windows-2019'
+      name: AgentPool
     variables:
     - group: 'Release'
     environment: 'dbaverificationapply'
@@ -169,7 +169,7 @@ stages:
   jobs:
   - deployment: Deploy
     pool:
-      vmImage: 'ubuntu-18.04'
+      name: AgentPool
     environment: dev
     variables:
     - group: Release
@@ -192,7 +192,7 @@ stages:
   jobs:
   - deployment: Deploy
     pool:
-      vmImage: 'ubuntu-18.04'
+      name: AgentPool
     environment: test
     variables:
     - group: 'Release'
@@ -215,7 +215,7 @@ stages:
   jobs:
   - deployment: Deploy
     pool:
-      vmImage: 'ubuntu-18.04'
+      name: AgentPool
     environment: staging
     variables:
     - group: 'Release'
