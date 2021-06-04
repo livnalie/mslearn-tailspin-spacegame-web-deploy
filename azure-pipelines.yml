@@ -116,6 +116,8 @@ stages:
     displayName: 'Run UI tests'
     pool:
       name: AgentPool
+      demands:
+      - MSTag -equals win-agent
     variables:
     - group: 'Release'
     steps: 
