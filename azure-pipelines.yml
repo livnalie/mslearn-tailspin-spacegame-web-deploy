@@ -115,9 +115,7 @@ stages:
     dependsOn: Deploy
     displayName: 'Run UI tests'
     pool:
-      name: AgentPool
-      demands:
-      - MSTag -equals win-agent
+      vmImage: 'windows-2019'
     variables:
     - group: 'Release'
     steps: 
